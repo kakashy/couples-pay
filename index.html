@@ -1,0 +1,196 @@
+<html>
+        <head>
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>
+            </title>
+            <link rel="stylesheet" type="text/css" href="styles/home.css">
+            <link rel="stylesheet" type="text/css" href="styles/services.css">
+           
+            <style>
+    * {box-sizing: border-box}
+    body {font-family: "Lato", sans-serif;
+            background: url('images/zebras.jpg') no-repeat center center fixed; 
+            background-size: cover;
+      }
+      a {
+        text-decoration: none;
+    }
+    
+    /* Style the tab */
+    .tab {
+        float: left;
+        border: 1px solid #ccc;
+        background-color: #f1f1f16c;
+        width: 30%;
+        height:35%;
+    }
+    
+    /* Style the buttons inside the tab */
+    .tab button {
+        float: left;
+        display: block;
+        background-color: inherit;
+        color: black;
+        padding: 22px 16px;
+        width: 100%;
+        border: none;
+        outline: none;
+        text-align: left;
+        cursor: pointer;
+        transition: 0.3s;
+        font-size: 17px;
+    }
+    
+    /* Change background color of buttons on hover */
+    .tab button:hover {
+        background-color: rgba(221, 221, 221, 0.253);
+    }
+    
+    /* Create an active/current "tab button" class */
+    .tab button.active {
+        background-color: rgba(204, 204, 204, 0.082);
+    }
+    
+    /* Style the tab content */
+    .tabcontent {
+        float: right;
+        padding: 0px 12px;
+        border: 1px solid #cccccc;
+        background-color:rgba(209, 201, 201, 0.493) ;
+        width: 70%;
+        border-left: none;
+        height: 75%;
+    }
+
+    @media screen and (max-width: 600px) {
+    .tab button, .tabcontent {
+        width: 100%;
+    }
+    .tab {
+        width: 50%;
+    }}
+    </style>
+    
+        
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        
+        </head>
+            <body>
+
+        
+        <!-- Page content -->
+        <div class="main">
+                <h3>Among Kenyan couples, who has the say on the earnings?</h3>
+                <p>The following are results froma survey conducted in 2014:</p>
+                
+                <div class="tab">
+                  <button class="tablinks" onclick="openCity(event, 'Data Collection')" >Data Collection</button>
+                  <button class="tablinks" onclick="location.href='piemen.html'">Husband's Cash</button>
+                  <button class="tablinks" onclick="openCity(event, 'WomenCash')" id="defaultOpen">Wife's Cash</button>
+                </div>
+                
+                
+                <div id="Data Analysis" class="tabcontent">
+                  <h3>Data Analysis</h3>
+                 
+                    
+                  </div>
+                
+                    
+
+                <div id="WomenCash" class="tabcontent">
+    
+                        <div id="container" style="height: 100%"></div>
+                        <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/echarts.min.js"></script>
+                        <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts-gl/echarts-gl.min.js"></script>
+                        <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts-stat/ecStat.min.js"></script>
+                        <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/extension/dataTool.min.js"></script>
+                        <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/map/js/china.js"></script>
+                        <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/map/js/world.js"></script>
+                        <script type="text/javascript" src="https://api.map.baidu.com/api?v=2.0&ak=ZUONbpqGBsYGXNIYHicvbAbM"></script>
+                        <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/extension/bmap.min.js"></script>
+                        <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/simplex.js"></script>
+                        <script type="text/javascript">
+                 var dom = document.getElementById("container");
+                 var myChart = echarts.init(dom);
+                 var app = {};
+                 option = null;
+                 app.title = 'Who Runs The Cash';
+                 
+                 option = {
+                     tooltip: {
+                         trigger: 'item',
+                         formatter: "{a} <br/>{b}: {c} ({d}%)"
+                     },
+                     legend: {
+                         orient: 'vertical',
+                         x: 'left',
+                         data:['Mainly Wife','Wife & Husband jointly','Mainly Husband','Other','Missing']
+                     },
+                     series: [
+                         {
+                             name:'Who Runs The Cash',
+                             type:'pie',
+                             radius: ['50%', '70%'],
+                             avoidLabelOverlap: false,
+                             label: {
+                                 normal: {
+                                     show: false,
+                                     position: 'center'
+                                 },
+                                 emphasis: {
+                                     show: true,
+                                     textStyle: {
+                                         fontSize: '30',
+                                         fontWeight: 'bold'
+                                     }
+                                 }
+                             },
+                             labelLine: {
+                                 normal: {
+                                     show: false
+                                 }
+                             },
+                             data:[
+                                 {value:2445, name:'Mainly Wife'},
+                                 {value:2039, name:'Wife & Husband jointly'},
+                                 {value:430, name:'Mainly Husband'},
+                                 {value:5, name:'Other'},
+                                 {value:29, name:'Missing'}
+                             ]
+                         }
+                     ]
+                 };
+                 ;
+                 if (option && typeof option === "object") {
+                     myChart.setOption(option, true);
+                 }
+                        </script>
+    
+
+                        
+                </div>
+                
+                <script>
+                function openCity(evt, cityName) {
+                    var i, tabcontent, tablinks;
+                    tabcontent = document.getElementsByClassName("tabcontent");
+                    for (i = 0; i < tabcontent.length; i++) {
+                        tabcontent[i].style.display = "none";
+                    }
+                    tablinks = document.getElementsByClassName("tablinks");
+                    for (i = 0; i < tablinks.length; i++) {
+                        tablinks[i].className = tablinks[i].className.replace(" active", "");
+                    }
+                    document.getElementById(cityName).style.display = "block";
+                    evt.currentTarget.className += " active";
+                }
+                
+                // Get the element with id="defaultOpen" and click on it
+                document.getElementById("defaultOpen").click();
+                </script>
+    
+    
+            </div>
+        </body>
+        </html>

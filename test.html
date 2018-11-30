@@ -1,0 +1,174 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Kakashy</title>
+<style>
+        * {box-sizing: border-box}
+        body {font-family: "Lato", sans-serif;
+                background: url('images/zebras.jpg') no-repeat center center fixed; 
+                background-size: cover;
+          }
+        
+        /* Style the tab */
+        .tab {
+            float: left;
+            border: 1px solid #ccc;
+            background-color: #f1f1f16c;
+            width: 30%;
+            height: 75%;
+        }
+        
+        /* Style the buttons inside the tab */
+        .tab button {
+            display: block;
+            background-color: inherit;
+            color: black;
+            padding: 22px 16px;
+            width: 100%;
+            border: none;
+            outline: none;
+            text-align: left;
+            cursor: pointer;
+            transition: 0.3s;
+            font-size: 17px;
+        }
+        
+        /* Change background color of buttons on hover */
+        .tab button:hover {
+            background-color: rgba(221, 221, 221, 0.253);
+        }
+        
+        /* Create an active/current "tab button" class */
+        .tab button.active {
+            background-color: rgba(204, 204, 204, 0.082);
+        }
+        
+        /* Style the tab content */
+        .tabcontent {
+            float: left;
+            padding: 0px 12px;
+            border: 1px solid #cccccc;
+            background-color:rgba(22, 19, 19, 0.493) ;
+            width: 70%;
+            border-left: none;
+            height: 75%;
+        }
+        </style>
+        
+</head>
+<body>     
+
+<div id="News" class="tabcontent">
+        <div id="container" style="height: 100%"></div>
+        <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/echarts.min.js"></script>
+        <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts-gl/echarts-gl.min.js"></script>
+        <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts-stat/ecStat.min.js"></script>
+        <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/extension/dataTool.min.js"></script>
+        <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/map/js/china.js"></script>
+        <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/map/js/world.js"></script>
+        <script type="text/javascript" src="https://api.map.baidu.com/api?v=2.0&ak=ZUONbpqGBsYGXNIYHicvbAbM"></script>
+        <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/extension/bmap.min.js"></script>
+        <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/simplex.js"></script>
+        <script type="text/javascript">
+ var dom = document.getElementById("container");
+ var myChart = echarts.init(dom);
+ var app = {};
+ option = null;
+ app.title = 'Who Runs The Cash';
+ 
+ option = {
+     tooltip: {
+         trigger: 'item',
+         formatter: "{a} <br/>{b}: {c} ({d}%)"
+     },
+     legend: {
+         orient: 'vertical',
+         x: 'left',
+         data:['Mainly Wife','Wife & Husband jointly','Mainly Husband','Other','Missing']
+     },
+     series: [
+         {
+             name:'Who Runs The Cash',
+             type:'pie',
+             radius: ['50%', '70%'],
+             avoidLabelOverlap: false,
+             label: {
+                 normal: {
+                     show: false,
+                     position: 'center'
+                 },
+                 emphasis: {
+                     show: true,
+                     textStyle: {
+                         fontSize: '30',
+                         fontWeight: 'bold'
+                     }
+                 }
+             },
+             labelLine: {
+                 normal: {
+                     show: false
+                 }
+             },
+             data:[
+                 {value:2445, name:'Mainly Wife'},
+                 {value:2039, name:'Wife & Husband jointly'},
+                 {value:430, name:'Mainly Husband'},
+                 {value:5, name:'Other'},
+                 {value:29, name:'Missing'}
+             ]
+         }
+     ]
+ };
+ ;
+ if (option && typeof option === "object") {
+     myChart.setOption(option, true);
+ }
+        </script>
+
+
+<div class="tab">
+        <button class="tablinks" onclick="openCity(event, 'Data Collection')" id="defaultOpen">Data Collection</button>
+        <button class="tablinks" onclick="openCity(event, 'Data Analysis')">Data Analysis</button>
+        <button class="tablinks" onclick="openCity(event, 'Data Presentation')">Data Presentation</button>
+      </div>
+      
+      <div id="Data Collection" class="tabcontent">
+        <h3>Data Collection</h3>
+        <p>We offer services in regards to large data collection be it surveys, interviews, population, social media trends.</p>
+          <p>We've made extensive use of cloudflare and integrated it to your main servers to enforce integrity on all the data collected. In addition, back ups are made for every database we create and encrypted for storage on the extra cloud servers we bought in July.</p>
+      </div>
+      
+      <div id="Data Analysis" class="tabcontent">
+        <h3>Data Analysis</h3>
+        <p>Once we have all the data necessitated by the project's objectives, we make swift processing with regards to the objectives and peruce through the collection in a bid to identify and handle anomalies.</p> 
+      </div>
+      
+      <div id="Data Presentation" class="tabcontent">
+        <h3>Data Presentation</h3>
+        <p>Forget piecharts and confusing donuts, we'll show your data with state-of-the-art APIs. Even host it on all the frameworks we can imagine right here on the interwebs so you can always refer back to it at your convenience.</p>
+      </div>
+      
+      <script>
+      function openCity(evt, cityName) {
+          var i, tabcontent, tablinks;
+          tabcontent = document.getElementsByClassName("tabcontent");
+          for (i = 0; i < tabcontent.length; i++) {
+              tabcontent[i].style.display = "none";
+          }
+          tablinks = document.getElementsByClassName("tablinks");
+          for (i = 0; i < tablinks.length; i++) {
+              tablinks[i].className = tablinks[i].className.replace(" active", "");
+          }
+          document.getElementById(cityName).style.display = "block";
+          evt.currentTarget.className += " active";
+      }
+      
+      // Get the element with id="defaultOpen" and click on it
+      document.getElementById("defaultOpen").click();
+      </script>
+
+
+</body>
+</html>
