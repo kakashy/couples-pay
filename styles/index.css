@@ -1,0 +1,10 @@
+.explainer {
+    color: rgb(214, 221, 183);
+    margin: 1rem 3rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.explainer a {
+    color: rgb(165, 201, 186);
+}
