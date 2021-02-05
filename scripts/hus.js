@@ -2,7 +2,7 @@ var dom = document.getElementById("container");
 var myChart = echarts.init(dom);
 var app = {};
 option = null;
-app.title = 'WhoRunsTheCashM';
+app.title = 'WhoRunsTheCash';
 
 option = {
     tooltip: {
@@ -18,7 +18,7 @@ option = {
         {
             name:'Who Runs The Cash',
             type:'pie',
-            radius: ['50%', '70%'],
+            radius: ['30%', '90%'],
             avoidLabelOverlap: false,
             label: {
                 normal: {

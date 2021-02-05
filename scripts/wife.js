@@ -18,8 +18,8 @@ option = {
         {
             name:'Who Runs The Cash',
             type:'pie',
-            radius: ['50%', '70%'],
-            avoidLabelOverlap: false,
+            radius: ['30%', '90%'],
+            avoidLabelOverlap: true,
             label: {
                 normal: {
                     show: false,
